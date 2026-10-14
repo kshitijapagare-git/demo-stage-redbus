@@ -1,0 +1,28 @@
+@media (max-width: 899px) {
+  .header-inner {
+    gap: 12px;
+  }
+  .nav-item {
+    padding: 0 10px;
+    font-size: 12px;
+  }
+  .nav-side {
+    display: none;
+  }
+  .hero-bus {
+    display: none;
+  }
+  .field {
+    flex-basis: 100%;
+    border-right: 0;
+    border-bottom: 1px solid var(--line);
+  }
+  .date-field {
+    flex-wrap: wrap;
+    padding: 12px 20px;
+    border-bottom: 0;
+  }
+  .women-box {
+    flex: 1 1 100%;
+  }
+}

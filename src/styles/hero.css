@@ -1,0 +1,55 @@
+/* Hero */
+.hero {
+  position: relative;
+  height: 320px;
+  overflow: hidden;
+  background: linear-gradient(180deg, #4a4f7a 0%, #8d7fb8 45%, #c6a6d6 100%);
+  color: #fff;
+}
+.hero h1 {
+  position: relative;
+  margin: 0;
+  padding-top: 84px;
+  font-size: clamp(30px, 4vw, 54px);
+  line-height: 1.15;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+.hero-scene {
+  position: absolute;
+  inset: 0;
+}
+.hill {
+  position: absolute;
+  border-radius: 50%;
+}
+.hill-back {
+  width: 120%;
+  height: 260px;
+  left: -10%;
+  bottom: -150px;
+  background: #9fb6d9;
+}
+.hill-front {
+  width: 60%;
+  height: 300px;
+  right: -10%;
+  bottom: -170px;
+  background: linear-gradient(90deg, #b7d6c4, #6fae86);
+}
+.road {
+  position: absolute;
+  width: 70%;
+  height: 140px;
+  right: -5%;
+  bottom: -60px;
+  border-radius: 50%;
+  border-top: 26px solid #2f3a6b;
+}
+.hero-bus {
+  position: absolute;
+  right: 30%;
+  bottom: 80px;
+  font-size: 90px;
+  transform: scaleX(-1);
+}

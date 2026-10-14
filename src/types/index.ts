@@ -11,3 +11,12 @@ export interface BoardingPoint {
   landmark: string
   cityId: City['id']
 }
+
+export type OfferTone = 'peach' | 'pink' | 'yellow'
+
+export interface Offer {
+  title: string
+  valid: string
+  code: string
+  tone: OfferTone
+}

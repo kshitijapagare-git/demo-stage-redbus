@@ -1,19 +1,25 @@
 import type { BoardingPoint, City } from '../types'
 
-interface Props {
+interface BoardingPointListProps {
   cities: City[]
   boardingPoints: BoardingPoint[]
 }
 
-function BoardingPointList({ cities, boardingPoints }: Props) {
+function formatCityLabel(city: City | undefined): string {
+  return city ? ` (${city.name}, ${city.state})` : ''
+}
+
+function BoardingPointList({ cities, boardingPoints }: BoardingPointListProps) {
   return (
     <ul className="bp-grid">
-      {boardingPoints.map((bp) => {
-        const city = cities.find((c) => c.id === bp.cityId)
+      {boardingPoints.map((boardingPoint) => {
+        const city = cities.find((candidate) => candidate.id === boardingPoint.cityId)
         return (
-          <li key={bp.id} className="bp-card">
-            <strong>{bp.name}</strong> — {bp.address}, {bp.landmark}
-            {city && ` (${city.name}, ${city.state})`}
+          <li key={boardingPoint.id} className="bp-card">
+            <strong>{boardingPoint.name}</strong>
+            {' — '}
+            {boardingPoint.address}, {boardingPoint.landmark}
+            {formatCityLabel(city)}
           </li>
         )
       })}

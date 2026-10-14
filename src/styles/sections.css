@@ -1,0 +1,37 @@
+/* Sections */
+.section {
+  padding-top: 72px;
+}
+.section-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.section-head h2 {
+  margin: 0;
+  font-size: 26px;
+  font-weight: 700;
+}
+.section-head a {
+  color: var(--link);
+  text-decoration: underline;
+  font-weight: 600;
+}
+.tabs {
+  display: flex;
+  gap: 12px;
+  margin: 34px 0 18px;
+}
+.tab {
+  border: 1px solid #bbb;
+  background: #fff;
+  border-radius: 8px;
+  padding: 8px 14px;
+  font-size: 16px;
+  font-weight: 500;
+}
+.tab.active {
+  background: var(--red-soft);
+  border-color: var(--red-soft);
+  font-weight: 700;
+}

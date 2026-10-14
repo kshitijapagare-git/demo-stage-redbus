@@ -29,9 +29,9 @@ function App() {
       </div>
       <main>
         <Offers />
-        <section className="container section">
+        <section className="container section" aria-labelledby="boarding-points-heading">
           <div className="section-head">
-            <h2>Boarding Points</h2>
+            <h2 id="boarding-points-heading">Boarding Points</h2>
           </div>
           <BoardingPointList cities={cities} boardingPoints={boardingPoints} />
         </section>

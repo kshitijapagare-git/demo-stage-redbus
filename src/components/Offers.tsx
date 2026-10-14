@@ -1,30 +1,50 @@
-const offers = [
-  { title: 'Save up to Rs 300 on bus tickets', valid: '05 Oct', code: 'FESTIVE300', tone: 'peach' },
-  { title: 'Save up to Rs 250 on bus tickets', valid: '31 Oct', code: 'FIRST', tone: 'pink' },
-  { title: 'Save up to Rs 300 on bus tickets', valid: '31 Oct', code: 'BUS300', tone: 'pink' },
-  { title: 'Save up to Rs 200 on Primo operators.', valid: '31 Oct', code: 'PRIMODAY', tone: 'yellow' },
-]
+import { offers as defaultOffers } from '../data'
+import { classNames } from '../lib/classNames'
+import type { Offer, OfferTone } from '../types'
 
-function Offers() {
+const OFFER_TABS = ['All', 'Bus', 'Train'] as const
+const ACTIVE_TAB: (typeof OFFER_TABS)[number] = 'All'
+
+const TONE_CLASS: Record<OfferTone, string> = {
+  peach: 'offer-peach',
+  pink: 'offer-pink',
+  yellow: 'offer-yellow',
+}
+
+interface OffersProps {
+  offers?: Offer[]
+}
+
+function Offers({ offers = defaultOffers }: OffersProps) {
   return (
-    <section className="container section">
+    <section className="container section" aria-labelledby="offers-heading">
       <div className="section-head">
-        <h2>Offers for you</h2>
+        <h2 id="offers-heading">Offers for you</h2>
         <a href="#">View more</a>
       </div>
       <div className="tabs">
-        <button type="button" className="tab active">All</button>
-        <button type="button" className="tab">Bus</button>
-        <button type="button" className="tab">Train</button>
+        {OFFER_TABS.map((tab) => (
+          <button
+            key={tab}
+            type="button"
+            className={classNames('tab', tab === ACTIVE_TAB && 'active')}
+          >
+            {tab}
+          </button>
+        ))}
       </div>
       <div className="offer-grid">
-        {offers.map((o) => (
-          <article key={o.code} className={`offer offer-${o.tone}`}>
+        {offers.map((offer) => (
+          <article key={offer.code} className={classNames('offer', TONE_CLASS[offer.tone])}>
             <span className="badge">Bus</span>
-            <h3>{o.title}</h3>
-            <p>Valid till {o.valid}</p>
-            <span className="code">🏷 {o.code}</span>
-            <span className="offer-art">🚌</span>
+            <h3>{offer.title}</h3>
+            <p>Valid till {offer.valid}</p>
+            <span className="code">
+              <span aria-hidden="true">🏷</span> {offer.code}
+            </span>
+            <span className="offer-art" aria-hidden="true">
+              🚌
+            </span>
           </article>
         ))}
       </div>
