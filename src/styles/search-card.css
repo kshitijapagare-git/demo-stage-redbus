@@ -27,6 +27,29 @@
   border: 1px solid var(--line);
   border-radius: 16px;
 }
+.swap-btn {
+  flex: 0 0 auto;
+  align-self: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: #fff;
+  color: var(--ink);
+  font-size: 17px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+.swap-btn:hover,
+.swap-btn:focus-visible {
+  border-color: var(--red);
+  color: var(--red);
+}
 .field {
   display: flex;
   align-items: center;
@@ -50,6 +73,59 @@
 }
 .field-icon {
   font-size: 20px;
+}
+.combobox {
+  position: relative;
+}
+.combobox-body {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 2px;
+}
+.combobox-listbox {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  z-index: 5;
+  margin: 6px 0 0;
+  padding: 6px;
+  list-style: none;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 0.12);
+  max-height: 260px;
+  overflow-y: auto;
+}
+.combobox-option {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.combobox-option-active,
+.combobox-option[aria-selected='true'] {
+  background: var(--red-soft);
+}
+.combobox-option-state {
+  font-size: 13px;
+  color: var(--muted);
+}
+.combobox-empty {
+  color: var(--muted);
+  cursor: default;
+}
+.field-error {
+  color: var(--red);
+  font-size: 13px;
+  white-space: nowrap;
 }
 .date-field {
   flex: 2 1 360px;

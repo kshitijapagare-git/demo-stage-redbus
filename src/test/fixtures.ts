@@ -2,6 +2,11 @@ import type { BoardingPoint, City, Offer } from '../types'
 
 export const testCities: City[] = [{ id: 1, name: 'Pune', state: 'Maharashtra' }]
 
+export const testCityOptions: City[] = [
+  { id: 1, name: 'Pune', state: 'Maharashtra' },
+  { id: 2, name: 'Bengaluru', state: 'Karnataka' },
+]
+
 export const testBoardingPoints: BoardingPoint[] = [
   { id: 1, name: 'Shivajinagar', address: 'FC Road', landmark: 'Near Modern Cafe', cityId: 1 },
 ]
